@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Clock, Users, Calendar, Shield } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface AuthLayoutProps {
   children: ReactNode;
@@ -62,8 +63,14 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
       </div>
 
       {/* Auth Form Section */}
-      <div className="flex-1 flex items-center justify-center p-6 sm:p-8 lg:p-12 bg-background">
-        <div className="w-full max-w-md">
+      <div className="flex-1 flex flex-col p-6 sm:p-8 lg:p-12 bg-background">
+        {/* Theme Toggle */}
+        <div className="flex justify-end mb-4">
+          <ThemeToggle />
+        </div>
+        
+        <div className="flex-1 flex items-center justify-center">
+          <div className="w-full max-w-md">
           {/* Mobile Logo */}
           <div className="flex lg:hidden items-center justify-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
@@ -72,7 +79,8 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
             <span className="text-xl font-bold text-foreground tracking-tight">Dayflow</span>
           </div>
           
-          {children}
+            {children}
+          </div>
         </div>
       </div>
     </div>
